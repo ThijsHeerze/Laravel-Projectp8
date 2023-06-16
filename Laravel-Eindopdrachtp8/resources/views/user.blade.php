@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    {{--    <link href="{{ asset('resources/css/app.css') }}" rel="stylesheet" />--}}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -39,9 +38,9 @@
     <hr class="mb-5">
     <table class="flex justify-center">
         <tr class="bg-gray-300 bg-opacity-40">
+            <th class="">ID</th>
             <th class="">Name</th>
             <th class="">Email</th>
-            <th class="">Action</th>
         </tr>
         @foreach($users as $user)
         <tr class="bg-gray-200 bg-opacity-5">

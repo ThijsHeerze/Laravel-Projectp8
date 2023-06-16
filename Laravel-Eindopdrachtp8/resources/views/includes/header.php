@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="app.css">
 
     <title>Laravel</title>
 
@@ -19,32 +20,13 @@
             font-family: 'Nunito', sans-serif;
         }
     </style>
-    @vite('resources/css/app.css')
+    <!--@vite('resources/css/app.css')-->
 </head>
     <header class="flex justify-center">
         <nav>
             <ul class="flex justify-center m-2">
-                <li class="hover:text-white rounded m-1 font-bold py-2 px-4 cursor-pointer flex justify-center duration-300"><a class="" href="{{ route('tasks.index') }}">Wordle</a></li>
-                <li class="hover:text-white rounded m-1 font-bold py-2 px-4 cursor-pointer flex justify-center duration-300"><a class="" href="{{ route('tasks.index') }}">Login</a></li>
+                <li class=""><a href="{{ route('game') }}">Wordle</a></li>
+                <li class=""><a href="{{ route('login') }}">Login</a></li>
             </ul>
         </nav>
     </header>
-<body class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400">
-    <x-forms.title title="Login"/>
-    <div class="flex justify-center">
-        <form class="" method="post" action="{{ route('login.post') }}">
-            @csrf
-            @if (request()->session()->has('status'))
-                <span>{{session('status')}}</span>
-            @endif
-                <x-forms.label name="email" label="Email" for="email"></x-forms.label>
-                <x-forms.input type="text" name="email" value=""></x-forms.input>
-                <x-forms.label name="password" label="Password" for="password"></x-forms.label>
-                <x-forms.input type="password" name="password" value=""></x-forms.input>
-            <div class="flex justify-center">
-                <button class="flex justify-center border border-transparent shadow-2xl focus:outline-none focus:ring-2 focus:ring-black bg-white hover:text-white hover:bg-blue-500 w-1/2 h-12 font-bold py-2 px-4 mt-6 rounded-3xl transition-colors duration-300 animate-none" type="submit" id="submit" name="submit" value="submit">Login</button>
-            </div>
-        </form>
-    </div>
-</body>
-</html>

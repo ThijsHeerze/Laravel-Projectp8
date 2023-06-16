@@ -29,7 +29,7 @@ class LoginController extends Controller
         $credentials = $request->only('email', 'password');
         //authenticatie
         if (Auth::attempt($credentials)) {
-            return redirect()->route('dashboard');
+            return redirect()->route('game');
         }
         $request->session()->flash('status', 'Wrong combination');
         return redirect()->route('login');
