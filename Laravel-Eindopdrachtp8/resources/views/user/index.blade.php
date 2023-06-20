@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
+    {{--    <link href="{{ asset('resources/css/app.css') }}" rel="stylesheet" />--}}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -24,6 +25,7 @@
     <header class="flex justify-center">
         <nav>
             <ul class="flex justify-center m-2">
+                <li class="hover:text-white rounded m-1 font-bold py-2 px-4 cursor-pointer flex justify-center duration-300"><a class="" href="{{ route('tasks.index') }}">Tasks</a></li>
                 <li class="hover:text-white rounded m-1 font-bold py-2 px-4 cursor-pointer flex justify-center duration-300"><a class="" href="{{ route('users.index') }}">Users</a></li>
                 <li class="hover:text-white rounded m-1 font-bold py-2 px-4 cursor-pointer flex justify-center duration-300"><a class="" href="{{ route('categories.index') }}">Categories</a></li>
                 <li class="hover:text-white rounded m-1 font-bold py-2 px-4 cursor-pointer flex justify-center duration-300"><a class="" href="{{ route('login.index') }}">Login</a></li>
@@ -38,22 +40,16 @@
     <hr class="mb-5">
     <table class="flex justify-center">
         <tr class="bg-gray-300 bg-opacity-40">
-            <th class="">ID</th>
             <th class="">Name</th>
             <th class="">Email</th>
+            <th class="">Action</th>
         </tr>
         @foreach($users as $user)
         <tr class="bg-gray-200 bg-opacity-5">
+            <td class="">{{ $user->id }}</td>
             <td class="">{{ $user->name }}</td>
             <td class="">{{ $user->email }}</td>
-            <td class="flex justify-center">
-                <a href="{{ route('users.edit',$user->id) }}" class="w-2/4 bg-sky-400 hover:bg-sky-500 duration-300 p-2 ml-1 mr-1 rounded flex justify-center cursor-pointer">Edit</a>
-                <form class="w-2/4 bg-red-500 p-2 rounded flex justify-center cursor-pointer hover:bg-red-600 duration-300 text-white" action="{{ route('users.destroy', $user->id) }}" method="post">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="cursor-pointer" value="Delete">Delete</button>
-                </form>
-            </td>
+            <td class="flex justify-center"></td>
         </tr>
         @endforeach
     </table>

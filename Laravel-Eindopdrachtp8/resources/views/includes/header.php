@@ -25,7 +25,7 @@
     <header class="flex justify-center">
         <nav>
             <ul class="flex justify-center m-2">
-                <li class=""><a href="{{ route('game') }}">Wordle</a></li>
+                <li class=""><a href="{{ route('Users') }}">Login</a></li>
                 <li class=""><a href="{{ route('login') }}">Login</a></li>
             </ul>
         </nav>

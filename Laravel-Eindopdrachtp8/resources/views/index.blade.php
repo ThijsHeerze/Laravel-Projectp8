@@ -23,10 +23,9 @@
     <!--@vite('resources/css/app.css')-->
 </head>
     <body>
-        <div class="button-group">
-            <button class="wordle-button" action="{{ route(game) }}">Play Wordle!</button>
+        <div class="link-group">
+            <a href="{{ route('user') }}" class="user-button">User</a>
             <a href="{{ route('login') }}" class="login-button">Login</a>
-
         </div>
     </body>
 </html>

@@ -10,9 +10,8 @@ class UserController extends Controller
 {
     public function index()
     {
-        //all()?
         $user = User::all();
-        return view('user.index')->with([
+        return view('user')->with([
             'users' => $user
         ]);
     }
@@ -31,7 +30,7 @@ class UserController extends Controller
             'email' => $request->get('email'),
             'password' => $hashed
         ]);
-        return redirect()->route('users.index');
+        return redirect()->route('users');
     }
 
     public function show($id)
@@ -60,12 +59,12 @@ class UserController extends Controller
             'email' => $request->get('email'),
             'password' => $hashed
         ]);
-        return redirect()->route('users.index');
+        return redirect()->route('users');
     }
 
     public function destroy($id)
     {
         User::destroy($id);
-        return redirect()->route('users.index');
+        return redirect()->route('users');
     }
 }
