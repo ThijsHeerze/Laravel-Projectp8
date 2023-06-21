@@ -27,7 +27,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function tasks(){
-        return $this->hasMany(Task::class);
+    //function die een belongsTo relationship returned 
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,20 +15,18 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+//alle routes die je hier ziet sturen je naar de goede controller
+
+Route::get('/users',[\App\Http\Controllers\UserController::class,'index'])->name('user.index');
+Route::post('/users', [\App\Http\Controllers\UserController::class, 'store'])->name('user.store');
 
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/login', function () {
-    return view('login');
-});
-Route::get('/user', function () {
-    return view('user.index');
-});
-Route::get('/dashboard', function () {
-    return view('dashboard.index')->name('dashboard.index');
-});
 
+Route::get('/dashboard', function () {
+    return view('dashboard.index');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
