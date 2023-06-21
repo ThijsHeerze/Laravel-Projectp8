@@ -21,11 +21,11 @@ Route::get('/login', function () {
     return view('login');
 });
 Route::get('/user', function () {
-    return view('user');
+    return view('user.index');
 });
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// });
+Route::get('/dashboard', function () {
+    return view('dashboard.index')->name('dashboard.index');
+});
 
 
 Route::middleware('auth')->group(function () {

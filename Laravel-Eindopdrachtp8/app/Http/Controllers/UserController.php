@@ -10,7 +10,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $user = User::all();
+        $users = User::all();
         return view('user')->with([
             'users' => $user
         ]);
@@ -21,7 +21,7 @@ class UserController extends Controller
         return view('user.create');
     }
 
-    public function store(UpdateUserRequest $request)
+    public function store(Request $request)
     {
         $password = $request->get('password');
         $hashed = Hash::make($password);
@@ -35,7 +35,7 @@ class UserController extends Controller
 
     public function show($id)
     {
-        $user = User::findOrFail($id);
+        $users = User::findOrFail($id);
         return view('user.show')->with([
             'user' => $user,
         ]);
@@ -43,15 +43,15 @@ class UserController extends Controller
 
     public function edit($id)
     {
-        $user = User::findOrFail($id);
+        $users = User::findOrFail($id);
         return view('user.edit')->with([
             'user'=>$user
         ]);
     }
 
-    public function update(UpdateUserRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $user = User::findOrFail($id);
+        $users = User::findOrFail($id);
         $password = $request->get('password');
         $hashed = Hash::make($password);
         $user->update([

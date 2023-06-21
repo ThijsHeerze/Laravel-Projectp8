@@ -22,21 +22,8 @@
     </style>
     @vite('resources/css/app.css')
 </head>
-    <header class="flex justify-center">
-        <nav>
-            <ul class="flex justify-center m-2">
-                <li class="hover:text-white rounded m-1 font-bold py-2 px-4 cursor-pointer flex justify-center duration-300"><a class="" href="{{ route('tasks.index') }}">Tasks</a></li>
-                <li class="hover:text-white rounded m-1 font-bold py-2 px-4 cursor-pointer flex justify-center duration-300"><a class="" href="{{ route('users.index') }}">Users</a></li>
-                <li class="hover:text-white rounded m-1 font-bold py-2 px-4 cursor-pointer flex justify-center duration-300"><a class="" href="{{ route('categories.index') }}">Categories</a></li>
-                <li class="hover:text-white rounded m-1 font-bold py-2 px-4 cursor-pointer flex justify-center duration-300"><a class="" href="{{ route('login.index') }}">Login</a></li>
-            </ul>
-        </nav>
-    </header>
-<body class="bg-clip-text text-transparent bg-gradient-to-r from-green-500">
+<body class="">
     <x-forms.title title="Users"/>
-    <div class="flex justify-end">
-        <a href="{{ route('users.create') }}" class="w-30 h-10 text-white bg-blue-600 hover:bg-blue-700 mb-4 mr-10 p-2 flex justify-center rounded duration-300 animate-none">Create user</a>
-    </div>
     <hr class="mb-5">
     <table class="flex justify-center">
         <tr class="bg-gray-300 bg-opacity-40">
@@ -44,6 +31,24 @@
             <th class="">Email</th>
             <th class="">Action</th>
         </tr>
+
+        <?php
+// Assuming you have an array of user objects or a collection of users
+$users = [
+    (object) [
+        'id' => 1,
+        'name' => 'John',
+        'email' => 'john@example.com',
+    ],
+    (object) [
+        'id' => 2,
+        'name' => 'Jane',
+        'email' => 'jane@example.com',
+    ],
+    // Add more user objects as needed
+];
+?>
+
         @foreach($users as $user)
         <tr class="bg-gray-200 bg-opacity-5">
             <td class="">{{ $user->id }}</td>
