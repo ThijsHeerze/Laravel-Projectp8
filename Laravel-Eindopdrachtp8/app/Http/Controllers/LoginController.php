@@ -17,7 +17,7 @@ class LoginController extends Controller
         return view('index');
     }
 
-    public function postLogin(Request $request)
+    public function postLogin(LoginRequest $request)
     {
         //valideren, bevestigen
         $request->validate([

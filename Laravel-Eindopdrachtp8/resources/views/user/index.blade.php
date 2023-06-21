@@ -48,7 +48,6 @@ $users = [
     // Add more user objects as needed
 ];
 ?>
-
         @foreach($users as $user)
         <tr class="bg-gray-200 bg-opacity-5">
             <td class="">{{ $user->id }}</td>
